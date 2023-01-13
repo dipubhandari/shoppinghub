@@ -1,7 +1,7 @@
 import { FaCartPlus } from "react-icons/fa";
 import React from 'react'
 import './RecentProducts.css'
-
+import { Link } from "react-router-dom";
 import { ProductsDetails } from './Product'
 import { useState } from "react";
 import { useEffect } from "react";
@@ -21,7 +21,8 @@ const Products = () => {
         {
 
           Products.map((product,index) => {
-            return <section className='product_box' key={index}>
+            return <Link to={`/product-detail/${product.id}`} className='product_link' key={index}>
+            <section className='product_box' key={index}>
               <span className="product_categories">
                 {/* showing the category of the item */}
                 {product.category}
@@ -41,7 +42,7 @@ const Products = () => {
                 </section>
               </section>
             </section>
-
+            </Link>
 })
         }
         {/* Displyaing product from products state till here*/}

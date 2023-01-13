@@ -2,7 +2,7 @@ export const Category = [
 
     {
         id: 1,
-        category_name: 'Ladies Products',
+        category_name: 'Ladies',
         img: 'https://img.freepik.com/free-photo/collection-beauty-products-with-copy-space_23-2148620110.jpg?w=2000',
 
         createdAt: new Date()
@@ -23,8 +23,14 @@ export const Category = [
    
     {
         id: 4,
-        category_name:'Devices',
+        category_name: 'Devices',
         img: '//www.computerhope.com/jargon/d/device.jpg',
+        createdAt: new Date()
+    },
+    {
+        id: 5,
+        category_name: 'Others',
+        img: 'https://images-us.nivea.com/-/media/local/in/boday_page/3_banner_3080x806.png?rx=1304&ry=0&rw=1452&rh=805',
         createdAt: new Date()
     },
 

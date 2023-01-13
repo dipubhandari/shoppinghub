@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Category } from '../../product_cate'
 import './Categories.css'
+import { Link } from "react-router-dom";
 
 export const Categories = () => {
 
@@ -21,14 +22,16 @@ export const Categories = () => {
 
                     {
                         categories.map((category, index) => {
-                            return <section className="categories_item" key={index}>
-                                 
-                                <img
-                                    src={category.img }
-                                    className='categories_img'
-                                    alt="loading" />
-                                <h3>{category.category_name}</h3>
+                            return <Link key={ index} to={`/products/${category.category_name}`} className="categories_link">
+                                <section className="categories_item" key={index}>
+
+                                    <img
+                                        src={category.img}
+                                        className='categories_img'
+                                        alt="loading" />
+                                    <h3>{category.category_name}</h3>
                                 </section>
+                            </Link>
                         })
                     }
                    

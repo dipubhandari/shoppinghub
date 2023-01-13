@@ -17,7 +17,12 @@
    display: flex;
    
 }
-
+.product_link{
+   text-decoration: none;
+}
+.categories_link{
+   text-decoration: none;
+}
 .product_name {
    color: rgb(53, 53, 53);
    opacity: 50%;

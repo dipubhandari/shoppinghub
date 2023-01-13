@@ -27,13 +27,13 @@ const Products = (props) => {
       return item.category == category_name
     })
     setProducts(Products)
-    console.log(props.clickedOnNavigation)
-
+   
   }, [props.clickedOnNavigation])
  
   return (
     <section className='recent_product_container'>
       HOME - PRODUCTS - CATEGORIES -
+      {category}
       <h1>Products</h1>
       <section className="product_card">
         {/* Displyaing product from products state */}

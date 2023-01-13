@@ -2,7 +2,7 @@
 export const ProductsDetails = [
     {
         id: 1,
-        category: 'LadyItems',
+        category: 'Ladies',
         img: 'http://reviews.com.np/uploads/article/popular-cosmetics-brands-in-nepal/popular-cosmetics-brands-in-nepal.jpg',
         name: 'Lip',
         price: 100,
@@ -10,7 +10,7 @@ export const ProductsDetails = [
     },
     {
         id: 2,
-        category: 'LadyItems',
+        category: 'Ladies',
         img: 'https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/6/064f1d424815_H-8901030790065.jpg',
         name: 'Cosmetin nepali',
         price: 100,
@@ -18,7 +18,7 @@ export const ProductsDetails = [
     },
     {
         id: 1,
-        category: 'LadyItems',
+        category: 'Others',
         img: 'http://reviews.com.np/uploads/article/popular-cosmetics-brands-in-nepal/popular-cosmetics-brands-in-nepal.jpg',
         name: 'Lip',
         price: 100,
@@ -26,7 +26,7 @@ export const ProductsDetails = [
     },
     {
         id: 2,
-        category: 'LadyItems',
+        category: 'Others',
         img: 'https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/6/064f1d424815_H-8901030790065.jpg',
         name: 'Cosmetin nepali',
         price: 100,
@@ -50,7 +50,7 @@ export const ProductsDetails = [
     },
     {
         id: 5,
-        category: 'LadyItems',
+        category: 'Others',
         img: 'https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/6/064f1d424815_H-8901030790065.jpg',
         name: 'Cosmetin nepali',
         price: 100,
@@ -66,7 +66,7 @@ export const ProductsDetails = [
     },
     {
         id: 3,
-        category: 'Clothes',
+        category: 'Camera',
         img: 'https://cms-wp.bigcommerce.com/wp-content/uploads/2017/05/product-photography-hero-1.jpg',
         name: 'Shoes',
         price: 1000,
@@ -82,7 +82,7 @@ export const ProductsDetails = [
     },
     {
         id: 5,
-        category: 'LadyItems',
+        category: 'Others',
         img: 'https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/0/6/064f1d424815_H-8901030790065.jpg',
         name: 'Cosmetin nepali',
         price: 100,
@@ -90,7 +90,7 @@ export const ProductsDetails = [
     },
     {
         id: 2,
-        category: 'Clothes',
+        category: 'Devices',
         img: 'https://cms-wp.bigcommerce.com/wp-content/uploads/2017/05/product-photography-hero-1.jpg',
         name: 'Lip',
         price: 100,
