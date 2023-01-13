@@ -1,14 +1,25 @@
 import React from 'react'
 import Home from './components/Home/Home'
+import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import Products from './components/Home/Products/Products'
+import Header from './components/Header/Header'
 
 const App = () => {
   return (
-    <section>
+    <BrowserRouter>
+<Header/>
+      <section>
 
-      {/*  */}
-   <Home/>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/products/:categoryname' element={<Products />}></Route>
+          {/* <Home /> */}
 
-    </section>
+    </Routes>
+
+      </section>
+    </BrowserRouter>
+
   )
 }
 

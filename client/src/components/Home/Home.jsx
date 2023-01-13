@@ -10,7 +10,6 @@ const Home = () => {
     return (
         <section className='home_container'>
 
-            <Header />
             <section>
                 <Hero />
             </section>

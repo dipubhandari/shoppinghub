@@ -3,8 +3,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import { BsBagX } from "react-icons/bs";
+import { Category } from '../product_cate';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Header = () => {
+    // state for the categories 
+    const [Categories, setCategories] = useState([])
+    // fetching the categories from server on 
+    useEffect(() => {
+        setCategories(Category)
+    }, [])
+
     return (
 
         <nav className='nav'>
@@ -24,7 +34,7 @@ const Header = () => {
                 </section>
                 {/* cart in the header section */}
                 <section className="cart">
-                    cart 
+                    cart
                     <span className="carticon">
                         <span className='numshow'>0</span>
                         <BsBagX />
@@ -36,11 +46,12 @@ const Header = () => {
 
             <section className="navigationlink">
 
-                <a href="">Clothes</a>
-                <a href="">Electronics</a>
-                <a href="">Furnitures</a>
-                <a href="">Shoes</a>
-                <a href="">Others</a>
+                {
+                    Categories.map((category, id) => {
+
+                        return <Link key={id} to={`/products/${category.category_name}`}>{category.category_name}</Link>
+                    })
+                }
 
             </section>
         </nav>

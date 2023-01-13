@@ -13,7 +13,7 @@
 
 .product_card {
    /* padding: 12px; */
-   flex-wrap: wrap-reverse;
+   flex-wrap: wrap;
    display: flex;
    
 }

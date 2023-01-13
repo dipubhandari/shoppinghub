@@ -22,10 +22,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 29px;
 }
 
 .categories_item {
+    flex-wrap: wrap;
     font-size: large;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
