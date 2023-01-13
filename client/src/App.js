@@ -3,6 +3,7 @@ import Home from './components/Home/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Products from './components/Products/Products'
+import Cart from './components/Cart/Cart'
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/products/:categoryname' element={<Products clickedOnNavigation={clickedOnNavigation} />}></Route>
+          <Route path='/cart' element={<Cart/>}></Route>
           {/* <Home /> */}
 
         </Routes>

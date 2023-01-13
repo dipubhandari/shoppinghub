@@ -17,7 +17,7 @@ const Header = (props) => {
 
     }, [])
 
-//    n link
+    //    n link
     return (
 
         <nav className='nav'>
@@ -40,7 +40,9 @@ const Header = (props) => {
                     cart
                     <span className="carticon">
                         <span className='numshow'>0</span>
-                        <BsBagX />
+                        <Link to='/cart'>
+                            <BsBagX /></Link>
+
                     </span>
                 </section>
 
@@ -53,7 +55,7 @@ const Header = (props) => {
                     Categories.map((category, id) => {
 
                         return <Link key={id} to={`/products/${category.category_name}`}
-                            onClick={()=>props.clickedOnLink(Math.floor(Math.random()*100))}>{category.category_name}</Link>
+                            onClick={() => props.clickedOnLink(Math.floor(Math.random() * 100))}>{category.category_name}</Link>
                     })
                 }
 
