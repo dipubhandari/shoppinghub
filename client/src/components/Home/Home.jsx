@@ -4,7 +4,7 @@ import Hero from '../HeroSection/Hero'
 import './Home.css'
 import { Categories } from './Categories/Categories'
 import OfferSection from './Offers/OfferSection'
-import Products from './Products/Products'
+import Products from './RecentsProducts/RecentProducts'
 
 const Home = () => {
     return (
@@ -18,10 +18,10 @@ const Home = () => {
             </section>
             <section
                 className='offers'>
-                <OfferSection/>
+                <OfferSection />
             </section>
             <section className="products">
-                <Products/>
+                <Products />
             </section>
         </section>
     )

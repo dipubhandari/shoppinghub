@@ -1,6 +1,6 @@
 import { FaCartPlus } from "react-icons/fa";
 import React from 'react'
-import './Products.css'
+import './RecentProducts.css'
 
 import { ProductsDetails } from './Product'
 import { useState } from "react";

@@ -21,7 +21,7 @@ export const Categories = () => {
 
                     {
                         categories.map((category, index) => {
-                            return <section className="categories_item">
+                            return <section className="categories_item" key={index}>
                                  
                                 <img
                                     src={category.img }
