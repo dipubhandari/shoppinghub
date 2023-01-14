@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Products from './components/Products/Products'
 import Cart from './components/Cart/Cart'
+import './App.css'
 
 const App = () => {
 
@@ -19,7 +20,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header clickedOnLink={clickedOnLink} />
+      <div className='header'>
+        <Header clickedOnLink={clickedOnLink} className='header' />
+   </div>
       <section>
 
         <Routes>

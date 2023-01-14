@@ -4,6 +4,8 @@ import './Products.css'
 import { ProductsDetails } from './Product'
 import { useState } from "react";
 import { useEffect } from "react"
+import { add } from "../../redux/cartSlice";
+import { useDispatch } from 'react-redux'
 
 const Products = (props) => {
   // state for products coming from server
@@ -27,9 +29,16 @@ const Products = (props) => {
       return item.category == category_name
     })
     setProducts(Products)
-   
+
   }, [props.clickedOnNavigation])
- 
+
+
+  // SENDING data to store on click on cart
+  const dispatch = useDispatch()
+  const ADD_TO_CART = (PRODUCT) => {
+    dispatch(add(PRODUCT))
+  }
+  // here
   return (
     <section className='recent_product_container'>
       HOME - PRODUCTS - CATEGORIES -
@@ -55,7 +64,7 @@ const Products = (props) => {
                 <section className="product_price">
                   Rs. {product.price}
                 </section>
-                <section className="add_to_cart">
+                <section className="add_to_cart" onClick={() => { ADD_TO_CART(product) }}>
                   <FaCartPlus />
                 </section>
               </section>

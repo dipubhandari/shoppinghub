@@ -22,7 +22,7 @@ export const Category = [
     },
    
     {
-        id: 4,
+        id: 6,
         category_name: 'Devices',
         img: '//www.computerhope.com/jargon/d/device.jpg',
         createdAt: new Date()

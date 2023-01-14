@@ -6,6 +6,7 @@ import { BsBagX } from "react-icons/bs";
 import { Category } from '../product_cate';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Header = (props) => {
     // state for the categories 
@@ -17,7 +18,11 @@ const Header = (props) => {
 
     }, [])
 
-    //    n link
+    // getting item from store
+    const cart_items = useSelector(state => state.cart)
+    const item_in_the_cart = cart_items.length
+    // getting item from store
+
     return (
 
         <nav className='nav'>
@@ -39,7 +44,7 @@ const Header = (props) => {
                 <section className="cart">
                     cart
                     <span className="carticon">
-                        <span className='numshow'>0</span>
+                        <span className='numshow'>{item_in_the_cart}</span>
                         <Link to='/cart'>
                             <BsBagX /></Link>
 
