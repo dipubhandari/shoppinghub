@@ -1,0 +1,15 @@
+  table {
+    border-style: solid;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    padding: 10px;
+  }
+
+  .login_signup_form {
+    top: 10px;
+  }
+
+  form:not(#login_signup_form) {
+    display: hidden;
+  }

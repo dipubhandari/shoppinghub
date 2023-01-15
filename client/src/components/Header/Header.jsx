@@ -44,13 +44,15 @@ const Header = (props) => {
                 <section className="cart">
                     cart
                     <span className="carticon">
-                        <span className='numshow'>{item_in_the_cart}</span>
                         <Link to='/cart'>
+                        <span className='numshow'>{item_in_the_cart}</span>
+                       
                             <BsBagX /></Link>
 
                     </span>
-                </section>
+                    <Link to='/login' className='login_link'>Login/Register</Link>
 
+                </section>
             </section>
 
 

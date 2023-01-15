@@ -13,7 +13,8 @@
     justify-content: center;
     align-items: center;
 }
-.homeLink{
+
+.homeLink {
     text-decoration: none;
 }
 
@@ -33,6 +34,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.login_link {
+    text-decoration: none;
+    color: rgb(255, 106, 0);
+    margin-left: 20px;
+    font-weight: normal;
+    opacity: 50%;
 }
 
 .search input {
@@ -71,9 +80,11 @@
     background: rgb(228, 11, 11);
     color: white;
 }
-.cart:hover{
+
+.cart:hover {
     cursor: pointer;
 }
+
 .navigationlink {
     background-color: rgb(23, 17, 58);
     padding: 20px;

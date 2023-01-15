@@ -56,7 +56,7 @@ const Cart = () => {
             total += (item.qty * item.price)
         })
         setTotalPrice(total)
-    }, [cart_items, UPDATEQTY])
+    }, [cart_item, cart_items, UPDATEQTY])
 
     // calculating the price of cart products 
 
