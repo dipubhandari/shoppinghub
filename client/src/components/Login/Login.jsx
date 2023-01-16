@@ -14,7 +14,7 @@ const Login = (props) => {
     const [input, setInput] = useState({})
 
     // state for login success 
-    const [login, setLogin] = useState(false)
+    const [is_success_login, setLogin] = useState(false)
 
     // handling the input in the signup fields
     const handleInput = (e) => {
@@ -46,7 +46,6 @@ const Login = (props) => {
                     });
                     props.isAccountPage(false)
                     setLogin(true)
-
                 }
 
             }).catch((eror) => {
@@ -64,7 +63,7 @@ const Login = (props) => {
     return (
         <>
             {/* is user logged in successfully redirect */}
-            {(login) && <Navigate to="/" replace={true} />}
+            {(is_success_login) && <Navigate to="/" replace={true} />}
             {/* is user logged in successfully redirect */}
 
             {/* Toast Message Componenet */}

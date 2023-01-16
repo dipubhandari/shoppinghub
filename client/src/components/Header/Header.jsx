@@ -14,8 +14,18 @@ import { GoSignOut } from "react-icons/go";
 
 const Header = (props) => {
     // state for the categories 
-    const [Categories, setCategories] = useState([])
+    const [categories, setCategories] = useState([])
 
+
+    // fetching the categories from server on 
+    useEffect(() => {
+        setCategories(Category)
+    }, [])
+
+    // getting item from store
+    const cart_items = useSelector(state => state.cart)
+    const item_in_the_cart = cart_items.length
+    // getting item from store
     // if user clicked in logout btn this functionality
 
     const logout = () => {
@@ -27,7 +37,11 @@ const Header = (props) => {
     // if user clicked in logout btn this functionality
 
     // checking the user is logged in or not
-    const [isLogin, setLogin] = useState(false)
+    const [isLoggedIn, setLogin] = useState(false)
+    // render when clicked 
+    // in logout
+    const [logoutClicked, setLogoutClicked] = useState('')
+
     const [loggedUser, setLoggedUser] = useState({})
     useEffect(() => {
         let Check_User_Login = async function () {
@@ -44,18 +58,7 @@ const Header = (props) => {
             }
         }
         Check_User_Login()
-    }, [logout])
-
-    // fetching the categories from server on 
-    useEffect(() => {
-        setCategories(Category)
-    }, [])
-
-    // getting item from store
-    const cart_items = useSelector(state => state.cart)
-    const item_in_the_cart = cart_items.length
-    // getting item from store
-
+    }, [logoutClicked])
 
     return (
 
@@ -87,7 +90,13 @@ const Header = (props) => {
                     </span>
 
                     {
-                        (isLogin) ? <section className='iflogged'> <b> Hello,{loggedUser.name}</b><span onClick={logout}><GoSignOut /></span> </section> : <Link to='/login' className='login_link'>Login/Register</Link>
+                        (isLoggedIn)
+                            ?
+                            <section className='iflogged'> <b> Hello,{loggedUser.name}</b><span onClick={() => { logout(); setLogoutClicked(Math.random()) }}><GoSignOut /></span> </section>
+
+                            :
+
+                            <Link to='/login' className='login_link'>Login/Register</Link>
                     }
 
 
@@ -98,7 +107,8 @@ const Header = (props) => {
             <section className="navigationlink">
 
                 {
-                    Categories.map((category, id) => {
+                    (!isLoggedIn) &&
+                    categories.map((category, id) => {
 
                         return <Link key={id} to={`/products/${category.category_name}`}
                             onClick={() => props.clickedOnLink(Math.floor(Math.random() * 100))}>{category.category_name}</Link>

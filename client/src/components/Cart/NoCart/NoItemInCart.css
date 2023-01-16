@@ -1,0 +1,16 @@
+.noitemstopic{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 153, 0);
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.link_buy{
+    text-decoration: none;
+    margin-left: 10px;
+}
+.link_buy:hover{
+    cursor: pointer;
+}

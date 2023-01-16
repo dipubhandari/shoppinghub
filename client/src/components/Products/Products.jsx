@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react"
 import { add } from "../../redux/cartSlice";
 import { useDispatch } from 'react-redux'
+import { FcAdvance, FcRight,FcNext } from "react-icons/fc";
 
 const Products = (props) => {
   // state for products coming from server
@@ -41,7 +42,7 @@ const Products = (props) => {
   // here
   return (
     <section className='recent_product_container'>
-      HOME - PRODUCTS - CATEGORIES -
+      HOME <FcAdvance /> PRODUCTS <FcNext /> CATEGORIES <FcRight/>
       {category}
       <h1>Products</h1>
       <section className="product_card">

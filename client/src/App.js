@@ -9,11 +9,10 @@ import './App.css'
 import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import axios from 'axios'
+import Checkout from './components/Checkout/Checkout'
 
 const App = () => {
 
-  // is login user state
-  const [isLogin, setLogin] = useState(false)
 
   // state for rerendering the product component while clicked on link
   const [clickedOnNavigation, setClickedOnNavigation] = useState('')
@@ -33,48 +32,59 @@ const App = () => {
 
 
   // checking user is login or not
-
-  // useEffect(() => {
-  //   let Check_User_Login = async function () {
-  //     const user = localStorage.getItem('shoppinghub')
-  //     if (user) {
-  //       const Logged_user_detail = JSON.parse(user)
-  //       const check = await axios.post(`/api/check-login`, Logged_user_detail).then(response => {
-  //         setLogin(response.data.isAuthorized)
-  //         console.log(response.data)
-  //       })
-  //     }
-  //     else {
-  //       isLogin(false)
-  //     }
-  //   }
-  //   Check_User_Login()
-  // }, [])
-  //chekcing user is login or not s 
+  // is login user state
+  const [isLogin, setLogin] = useState(false)
+  const [loggedUser, setLoggedUser] = useState({})
+  useEffect(() => {
+    let Check_User_Login = async function () {
+      const user = localStorage.getItem('shoppinghub')
+      if (user) {
+        const Logged_user_detail = JSON.parse(user)
+        const check = await axios.post(`/api/check-login`, Logged_user_detail).then(response => {
+          setLoggedUser(response.data.user)
+          setLogin(response.data.isAuthorized)
+        })
+      }
+      else {
+        setLogin(false)
+      }
+    }
+    Check_User_Login()
+  }, [])
+  // chekcing user is login or not s 
 
   return (
     <BrowserRouter>
       <div className='header'>
         {/* hiding the header component in loign and signup routes */}
 
-        {(!isLoginSignUpPage) && <Header clickedOnLink={clickedOnLink} className='header' />}
+        {(!isLoginSignUpPage) && <Header clickedOnLink={clickedOnLink} className='header'
+        />}
 
       </div>
       <section>
 
         <Routes>
+          {/* homepage */}
           <Route path='/' element={<Home />}></Route>
+          {/* category page */}
           <Route path='/products/:categoryname' element={<Products clickedOnNavigation={clickedOnNavigation} />}></Route>
+          {/* cart page */}
           <Route path='/cart' element={<Cart />}></Route>
+          {/* login page */}
           <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage} />}></Route>
+          {/* signup page */}
           <Route path='/newaccount' element={(!isLogin) && <Signup isAccountPage={isAccountPage} />}></Route>
+          {/* checkout page */}
+          <Route path='/cart/checkout' element={(isLogin) ? <Checkout /> : <Login isAccountPage={isAccountPage} />}></Route>
+          {/* Page not found */}
           <Route path='*' element={<h1>PAGE NOT FOUND !</h1>}></Route>
           {/* <Home /> */}
 
         </Routes>
 
       </section>
-    </BrowserRouter>
+    </BrowserRouter >
 
   )
 }

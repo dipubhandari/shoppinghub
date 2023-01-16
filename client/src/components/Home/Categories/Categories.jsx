@@ -14,7 +14,7 @@ export const Categories = () => {
        setCategories(Category) 
     },[])
     // setting the categories fetch from the server  till here
-
+   
     return (
         <section className="categoriescontainer">
             <h2>Category</h2>

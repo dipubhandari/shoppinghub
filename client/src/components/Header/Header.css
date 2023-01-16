@@ -62,7 +62,7 @@
 }
 
 .carticon {
-    background-color: rgb(42, 33, 63);
+    background-color: rgb(42, 33, 63 ,.6);
     color: rgb(122, 122, 122);
     text-decoration: none;
     position: relative;
