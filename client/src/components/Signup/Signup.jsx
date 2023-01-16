@@ -39,12 +39,12 @@ const Signup = (props) => {
         }
         else {
             console.log(input)
-            toast.success('Successfully created!', {
-            });
-
             // sending data to the server
             await axios.post(`/api/register`, input).then((response) => {
-                console.log(response)
+                toast.error(response.data.error_msg , {
+                });
+                toast.success( response.data.success, {
+                });
             }).catch((eror) => {
                 console.log(error)
             })
