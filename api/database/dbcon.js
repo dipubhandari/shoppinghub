@@ -5,6 +5,7 @@ const dbcon = async (DATABASE_URL) => {
         const DB_OPTIONS = {
             dbName: 'shoppinghub',
         }
+        await mongoose.set("strictQuery", false);
         const result = await mongoose.connect(DATABASE_URL, DB_OPTIONS)
         if (result) {
             console.log("DATABASE CONNENCTED")

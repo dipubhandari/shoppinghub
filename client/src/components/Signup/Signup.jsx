@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { URL_SERVER } from '../../config'
 import axios from 'axios'
 
 const Signup = (props) => {
@@ -26,7 +25,7 @@ const Signup = (props) => {
     }
     // validating the signup form and sending it to server
     const [error, setError] = useState('')
-    const [successMsg, setSuccessMsg] = useState('')
+    const [successMsg, setsuccessMsg] = useState('')
     const NewAccount = async (e) => {
         e.preventDefault()
         if (input.password.length < 8) {
@@ -38,13 +37,17 @@ const Signup = (props) => {
             });
         }
         else {
-            console.log(input)
             // sending data to the server
             await axios.post(`/api/register`, input).then((response) => {
-                toast.error(response.data.error_msg , {
+                toast.error(response.data.error_msg, {
                 });
-                toast.success( response.data.success, {
+                toast.success(response.data.success, {
                 });
+
+                if (response.data.success) {
+                    setInput({})
+                }
+
             }).catch((eror) => {
                 console.log(error)
             })
@@ -70,6 +73,7 @@ const Signup = (props) => {
                             <input
                                 type="text"
                                 name="name"
+                                value={input.name || ''}
                                 onChange={handleInput}
                                 required
                             />
@@ -81,6 +85,7 @@ const Signup = (props) => {
                         <td>
                             <input
                                 required
+                                value={input.gmail || ''}
                                 type="text"
                                 name="gmail"
                                 onChange={handleInput}
@@ -95,6 +100,7 @@ const Signup = (props) => {
                                 required
                                 type="password"
                                 name="password"
+                                value={input.password || ''}
                                 onChange={handleInput}
                             />
                         </td>

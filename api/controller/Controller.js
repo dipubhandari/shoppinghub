@@ -82,7 +82,29 @@ class Controller {
 
 
     }
+    // check if the login details entered in localstorage is in db or not
+    static Check_Login_Details = async (req, res) => {
 
+        try {
+
+            //    gettin data from frontend
+            const { name, email, password } = req.body
+
+            // checking in the database
+            const check = await User__Model.findOne({ name, email, password })
+            console.log(check)
+            check ?
+                res.send({ isAuthorized: true, user: check })
+                :
+
+                res.send({ isAuthorized: false })
+
+
+        } catch (error) {
+
+        }
+
+    }
 
 }
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react'
+import { Navigate, redirect } from "react-router-dom"
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -12,7 +13,8 @@ const Login = (props) => {
     // state for input in the form field
     const [input, setInput] = useState({})
 
-
+    // state for login success 
+    const [login, setLogin] = useState(false)
 
     // handling the input in the signup fields
     const handleInput = (e) => {
@@ -25,7 +27,6 @@ const Login = (props) => {
     const [successMsg, setSuccessMsg] = useState('')
 
     const Login = async (e) => {
-        console.log('clicked')
         e.preventDefault()
         if (!(input.password && input.email)) {
             toast.error('Please enter the details', {
@@ -37,16 +38,17 @@ const Login = (props) => {
                 // handling error message
                 toast.error(response.data.error_msg, {
                 });
-                // handling success message
-                toast.success(response.data.success, {
-                });
-               
+
                 if (response.data.user) {
                     // storing user in localstore
-                    console.log(response.data.user)
-                    console.log('storing')
-                    localStorage.setItem('shoppinghub_user', JSON.stringify(response.data.user))
+                    const login = localStorage.setItem('shoppinghub', JSON.stringify(response.data.user))
+                    toast.success(response.data.success, {
+                    });
+                    props.isAccountPage(false)
+                    setLogin(true)
+
                 }
+
             }).catch((eror) => {
                 console.log(error)
             })
@@ -61,9 +63,14 @@ const Login = (props) => {
 
     return (
         <>
+            {/* is user logged in successfully redirect */}
+            {(login) && <Navigate to="/" replace={true} />}
+            {/* is user logged in successfully redirect */}
+
+            {/* Toast Message Componenet */}
             <ToastContainer />
 
-            <Link to={`/`}></Link>
+            {/* <Link to={`/`}></Link> */}
             <form method="post" className='login_signup_form' id='login_signup_form' onSubmit={Login}>
                 <table>
                     <tr bgcolor="orange">
@@ -75,8 +82,9 @@ const Login = (props) => {
                         <td></td>
                         <td>
                             <input
-                                type="text"
+                                type="email"
                                 onChange={handleInput}
+                                value={input.email || ''}
                                 name="email"
                             />
                         </td>
@@ -88,6 +96,7 @@ const Login = (props) => {
                             <input
                                 type="password" name="password"
                                 onChange={handleInput}
+                                value={input.password || ''}
                             />
                         </td>
                     </tr>

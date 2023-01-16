@@ -20,7 +20,7 @@ export const Category = [
         img: 'https://www.pngitem.com/pimgs/m/136-1369939_transparent-blue-aesthetic-png-blue-aesthetic-clothes-transparent.png',
         createdAt: new Date()
     },
-   
+
     {
         id: 6,
         category_name: 'Devices',

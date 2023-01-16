@@ -1,10 +1,8 @@
 // importing modules
 import express from "express";
-import dbcon from "./dbcon/dbcon.js";
+import dbcon from "./database/dbcon.js";
 import router from "./routes/authentication_route.js";
 import cors from 'cors'
-
-
 
 
 const app = express()

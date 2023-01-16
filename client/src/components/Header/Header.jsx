@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AiOutlineShoppingCart from 'react-icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -7,15 +9,46 @@ import { Category } from '../product_cate';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { GoSignOut } from "react-icons/go";
 
 const Header = (props) => {
     // state for the categories 
     const [Categories, setCategories] = useState([])
+
+    // if user clicked in logout btn this functionality
+
+    const logout = () => {
+        localStorage.removeItem('shoppinghub')
+        toast.info('Log Out!...');
+
+    }
+
+    // if user clicked in logout btn this functionality
+
+    // checking the user is logged in or not
+    const [isLogin, setLogin] = useState(false)
+    const [loggedUser, setLoggedUser] = useState({})
+    useEffect(() => {
+        let Check_User_Login = async function () {
+            const user = localStorage.getItem('shoppinghub')
+            if (user) {
+                const Logged_user_detail = JSON.parse(user)
+                const check = await axios.post(`/api/check-login`, Logged_user_detail).then(response => {
+                    setLogin(response.data.isAuthorized)
+                    setLoggedUser(response.data.user)
+                })
+            }
+            else {
+                setLogin(false)
+            }
+        }
+        Check_User_Login()
+    }, [logout])
+
     // fetching the categories from server on 
     useEffect(() => {
         setCategories(Category)
-        // console.log(props)
-
     }, [])
 
     // getting item from store
@@ -23,9 +56,11 @@ const Header = (props) => {
     const item_in_the_cart = cart_items.length
     // getting item from store
 
+
     return (
 
         <nav className='nav'>
+            <ToastContainer />
             <section className='header_container'>
                 {/* logo in the header section */}
 
@@ -45,12 +80,16 @@ const Header = (props) => {
                     cart
                     <span className="carticon">
                         <Link to='/cart'>
-                        <span className='numshow'>{item_in_the_cart}</span>
-                       
+                            <span className='numshow'>{item_in_the_cart}</span>
+
                             <BsBagX /></Link>
 
                     </span>
-                    <Link to='/login' className='login_link'>Login/Register</Link>
+
+                    {
+                        (isLogin) ? <section className='iflogged'> <b> Hello,{loggedUser.name}</b><span onClick={logout}><GoSignOut /></span> </section> : <Link to='/login' className='login_link'>Login/Register</Link>
+                    }
+
 
                 </section>
             </section>
