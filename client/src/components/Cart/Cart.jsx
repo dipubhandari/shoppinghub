@@ -13,8 +13,8 @@ const Cart = () => {
 
     // getting item from store
     let cart_item = useSelector(state => state.cart)
-    const [cart_items, setCartItem] = useState(cart_item)
-    const item_in_the_cart = cart_items.length
+    const [cart_items, setCartItems] = useState(cart_item)
+
     // getting item from store
 
 
@@ -28,18 +28,18 @@ const Cart = () => {
                 }
                 return item
             })
-            setCartItem(products)
+            setCartItems(products)
 
         }
 
         if (event == 'DECREAMENT') {
             const products = cart_items.map((item, id) => {
                 if (item.id == product_id) {
-                    return { ...item, qty: (item.qty = 1) ? 1 : item.qty - 1 }
+                    return { ...item, qty: (item.qty == 1) ? 1 : item.qty - 1 }
                 }
                 return item
             })
-            setCartItem(products)
+            setCartItems(products)
 
         }
 
@@ -71,9 +71,9 @@ const Cart = () => {
     }
     // rerendering the component when click in remove to cart button so that it
     // changes on the fly
-    useEffect(() => {
-        setCartItem(cart_item)
-    }, [REMOVE_TO_CART])
+    // useEffect(() => {
+    //     setCartItems(cart_item)
+    // }, [REMOVE_TO_CART])
     // remove item from redux store  
 
     return (
