@@ -1,0 +1,31 @@
+.form_titles {
+    color: rgb(151, 146, 137);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: initial;
+}
+
+.payment_submit_button {
+    background-color: rgb(112, 224, 0);
+    border: 1px solid lightcoral;
+    color: #ffff;
+  
+}
+
+.payment_submit_button:hover {
+    background-color: rgb(255, 140, 0);
+}
+
+
+.form__content {
+    display: grid;
+    padding: 6px;
+    margin: 8px;
+   
+}
+
+.form__content input {
+    margin: 9px 0px;
+    width: 57%;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 11px;
+}

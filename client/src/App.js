@@ -78,20 +78,36 @@ const App = () => {
       <section>
 
         <Routes>
+
           {/* homepage */}
           <Route path='/' element={<Home />}></Route>
+
           {/* category page */}
           <Route path='/products/:categoryname' element={<Products clickedOnNavigation={clickedOnNavigation} />}></Route>
+
           {/* cart page */}
           <Route path='/cart' element={<Cart />}></Route>
+
           {/* login page */}
-          <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage} isLogoutOrLogin={isLogoutOrLogin}
+          <Route path='/login' element={(!isLogin) && <Login
+            isAccountPage={isAccountPage}
+            isLogoutOrLogin={isLogoutOrLogin}
             isLoginSignUpPage={isLoginSignUpPage}
           />}></Route>
+
           {/* signup page */}
           <Route path='/newaccount' element={(!isLogin) && <Signup isAccountPage={isAccountPage} />}></Route>
+
           {/* checkout page */}
-          <Route path='/cart/checkout' element={(isLogin) ? <Checkout /> : <Login isAccountPage={isAccountPage} isLogoutOrLogin={isLogoutOrLogin} />}></Route>
+          <Route path='/cart/checkout'
+            element={(isLogin) ?
+              <Checkout /> :
+              <Login
+                isAccountPage={isAccountPage}
+                isLogoutOrLogin={isLogoutOrLogin}
+                isLoginSignUpPage={isLoginSignUpPage}
+              />}></Route>
+
           {/* Page not found */}
           <Route path='*' element={<h1>PAGE NOT FOUND !</h1>}></Route>
           {/* <Home /> */}
