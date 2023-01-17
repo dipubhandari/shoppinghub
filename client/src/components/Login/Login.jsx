@@ -50,7 +50,7 @@ const Login = (props) => {
 
                 }
 
-            }).catch((eror) => {
+            }).catch((error) => {
                 console.log(error)
             })
         }

@@ -61,6 +61,7 @@ const App = () => {
     }
     if (event == 'login') {
       setLogin(value)
+      console.log(value)
     }
   }
   //  updating the isLogin to fasle when click logout so that it rerender and no login error when proceed to payment
@@ -84,13 +85,13 @@ const App = () => {
           {/* cart page */}
           <Route path='/cart' element={<Cart />}></Route>
           {/* login page */}
-          <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage}
+          <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage} isLogoutOrLogin={isLogoutOrLogin}
             isLoginSignUpPage={isLoginSignUpPage}
           />}></Route>
           {/* signup page */}
           <Route path='/newaccount' element={(!isLogin) && <Signup isAccountPage={isAccountPage} />}></Route>
           {/* checkout page */}
-          <Route path='/cart/checkout' element={(isLogin) ? <Checkout /> : <Login isAccountPage={isAccountPage} />}></Route>
+          <Route path='/cart/checkout' element={(isLogin) ? <Checkout /> : <Login isAccountPage={isAccountPage} isLogoutOrLogin={isLogoutOrLogin} />}></Route>
           {/* Page not found */}
           <Route path='*' element={<h1>PAGE NOT FOUND !</h1>}></Route>
           {/* <Home /> */}
