@@ -31,7 +31,7 @@ const Header = (props) => {
     const logout = () => {
         localStorage.removeItem('shoppinghub')
         toast.info('Log Out!...');
-
+        props.isLogoutOrLogin('logout',false)
     }
 
     // if user clicked in logout btn this functionality

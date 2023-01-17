@@ -51,14 +51,26 @@ const App = () => {
     }
     Check_User_Login()
   }, [])
-  // chekcing user is login or not s 
+  // chekcing user is login or not s
+
+
+  //   updating the isLogin to fasle when click logout so that it rerender and no login error when proceed to payment
+  const isLogoutOrLogin = (event, value) => {
+    if (event == 'logout') {
+      setLogin(value)
+    }
+    if (event == 'login') {
+      setLogin(value)
+    }
+  }
+  //  updating the isLogin to fasle when click logout so that it rerender and no login error when proceed to payment
 
   return (
     <BrowserRouter>
       <div className='header'>
         {/* hiding the header component in loign and signup routes */}
 
-        {(!isLoginSignUpPage) && <Header clickedOnLink={clickedOnLink} className='header'
+        {(!isLoginSignUpPage) && <Header clickedOnLink={clickedOnLink} className='header' isLogoutOrLogin={isLogoutOrLogin}
         />}
 
       </div>
@@ -72,7 +84,9 @@ const App = () => {
           {/* cart page */}
           <Route path='/cart' element={<Cart />}></Route>
           {/* login page */}
-          <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage} />}></Route>
+          <Route path='/login' element={(!isLogin) && <Login isAccountPage={isAccountPage}
+            isLoginSignUpPage={isLoginSignUpPage}
+          />}></Route>
           {/* signup page */}
           <Route path='/newaccount' element={(!isLogin) && <Signup isAccountPage={isAccountPage} />}></Route>
           {/* checkout page */}

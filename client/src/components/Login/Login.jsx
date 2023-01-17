@@ -46,6 +46,8 @@ const Login = (props) => {
                     });
                     props.isAccountPage(false)
                     setLogin(true)
+                    props.isLogoutOrLogin('login', true)
+
                 }
 
             }).catch((eror) => {
