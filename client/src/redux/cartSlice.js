@@ -26,11 +26,14 @@ export const cartSlice = createSlice({
             // ✅ This is safe, because we made a copy
             return state.filter(filter => filter.id !== identity)
 
+        },
+        updateQuantity: (state, action) => {
+            return state = action.payload
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { add, remove } = cartSlice.actions
+export const { add, remove, updateQuantity } = cartSlice.actions
 
 export default cartSlice.reducer

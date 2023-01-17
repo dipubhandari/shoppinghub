@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Cart.css'; import { HiOutlineTrash } from "react-icons/hi";
 import { FcApproval, FcPrevious, FcLock } from "react-icons/fc";
 import { useSelector } from 'react-redux';
-import { remove } from '../../redux/cartSlice';
+import { remove, add, updateQuantity } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import NoItemInCart from './NoCart/NoItemInCart';
@@ -29,7 +29,8 @@ const Cart = () => {
                 return item
             })
             setCartItems(products)
-
+            // updating the item in redux so that when we go another page and come cart page we get updated qty
+            dispatch(updateQuantity(products))
         }
 
         if (event == 'DECREAMENT') {
@@ -40,7 +41,8 @@ const Cart = () => {
                 return item
             })
             setCartItems(products)
-
+            // updating the item in redux so that when we go another page and come cart page we get updated qty
+            dispatch(updateQuantity(products))
         }
 
     }
@@ -71,9 +73,9 @@ const Cart = () => {
     }
     // rerendering the component when click in remove to cart button so that it
     // changes on the fly
-    // useEffect(() => {
-    //     setCartItems(cart_item)
-    // }, [REMOVE_TO_CART])
+    useEffect(() => {
+
+    }, [REMOVE_TO_CART])
     // remove item from redux store  
 
     return (
