@@ -74,7 +74,7 @@ const Cart = () => {
     // rerendering the component when click in remove to cart button so that it
     // changes on the fly
     useEffect(() => {
-
+        setCartItems(cart_item)
     }, [REMOVE_TO_CART])
     // remove item from redux store  
 
