@@ -7,7 +7,8 @@ const orderdetailsSchema = new Schema({
     address: String,
     phone: Number,
     orderdetails: Array,
-    createdAt: { type: Date, default: new Date() }
+    createdAt: { type: Date, default: new Date() },
+    totalPrice: Number
 });
 
 const Order_Model = mongoose.model('orders', orderdetailsSchema)

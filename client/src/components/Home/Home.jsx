@@ -5,6 +5,7 @@ import './Home.css'
 import { Categories } from './Categories/Categories'
 import OfferSection from './Offers/OfferSection'
 import Products from './RecentsProducts/RecentProducts'
+import Footer from '../Footer/Footer'
 
 const Home = () => {
     return (
@@ -22,6 +23,9 @@ const Home = () => {
             </section>
             <section className="products">
                 <Products />
+            </section>
+            <section className="footer">
+                <Footer />
             </section>
         </section>
     )

@@ -6,7 +6,11 @@ import { ProductsDetails } from './Product'
 import { useState } from "react";
 import { add } from "../../../redux/cartSlice";
 import { useDispatch } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { useEffect } from "react";
+
+
 const Products = () => {
   // state for products coming from server
   const [Products, setProducts] = useState([])
@@ -20,6 +24,8 @@ const Products = () => {
   const dispatch = useDispatch()
   const ADD_TO_CART = (products) => {
     dispatch(add(products))
+    // 
+    toast.success('Added To Cart')
   }
   // redux sending the item to the store while clicking on the cart
 

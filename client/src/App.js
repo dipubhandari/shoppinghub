@@ -126,6 +126,8 @@ const App = () => {
         </Routes>
 
       </section>
+
+
     </BrowserRouter >
 
   )

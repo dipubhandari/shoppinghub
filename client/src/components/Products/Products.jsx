@@ -1,12 +1,14 @@
-import { FaCartPlus } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa"
 import React from 'react'
 import './Products.css'
 import { ProductsDetails } from './Product'
-import { useState } from "react";
+import { useState } from "react"
 import { useEffect } from "react"
-import { add } from "../../redux/cartSlice";
+import { add } from "../../redux/cartSlice"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { useDispatch } from 'react-redux'
-import { FcAdvance, FcRight,FcNext } from "react-icons/fc";
+import { FcAdvance, FcRight, FcNext } from "react-icons/fc"
 
 const Products = (props) => {
   // state for products coming from server
@@ -37,12 +39,19 @@ const Products = (props) => {
   // SENDING data to store on click on cart
   const dispatch = useDispatch()
   const ADD_TO_CART = (PRODUCT) => {
-    dispatch(add(PRODUCT))
+    // adding the item to the cart
+    const added = dispatch(add(PRODUCT))
+    // if added to cart alert
+    if (added) {
+      toast.success('Added To Cart!', {
+
+      });
+    }
   }
   // here
   return (
     <section className='recent_product_container'>
-      HOME <FcAdvance /> PRODUCTS <FcNext /> CATEGORIES <FcRight/>
+      HOME <FcAdvance /> PRODUCTS <FcNext /> CATEGORIES <FcRight />
       {category}
       <h1>Products</h1>
       <section className="product_card">

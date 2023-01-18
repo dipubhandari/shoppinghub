@@ -27,14 +27,14 @@ class OrderController {
                         total += item.qty * item.price
                         return { ...item, totalprice: item.qty * item.price }
                     })
-                    console.log(products)
-                    console.log(products)
+
                     const save = await Order_Model.create({
                         name: user.name,
                         email: user.email,
                         address: user.address,
                         phone: user.phone,
-                        orderdetails: [products]
+                        orderdetails: [products],
+                        totalPrice: total
                     })
                     if (save) {
                         // response to backend
@@ -44,11 +44,14 @@ class OrderController {
             }
 
         } catch (error) {
-            console.log(error)
 
         }
     }
-
+    static OrderApi = async (req, res) => {
+        const orderapi = await Order_Model.find()
+        console.log(orderapi)
+        res.send(orderapi)
+    }
 }
 
 
