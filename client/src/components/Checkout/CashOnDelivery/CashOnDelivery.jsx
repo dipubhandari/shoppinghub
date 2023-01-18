@@ -3,13 +3,17 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import './Cod.css'
 import { ToastContainer, toast } from 'react-toastify'
+import { empty } from '../../../redux/cartSlice'
 import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
 
 const CashOnDelivery = () => {
 
+  // dispatch for removing the item when order is completed
+  const dispatch = useDispatch()
   // getting the data from redux store
   const cart_item = useSelector(state => state.cart)
 
@@ -52,10 +56,12 @@ const CashOnDelivery = () => {
       await axios.post('/api/order', { orderDetails: cart_item, user: input }).then((Response) => {
         console.log(Response.data.success)
         if (Response.data.success) {
+          // navigating the user to thankyou page
           navigate('/order-success')
+          // make cart no items 
+          dispatch(empty([]))
         }
       }).then(eror => {
-        console.log(eror)
       })
     }
 
