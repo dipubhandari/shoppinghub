@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react'
-import { Navigate, redirect } from "react-router-dom"
+import { Navigate, redirect, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -12,7 +12,8 @@ const Login = (props) => {
 
     // state for input in the form field
     const [input, setInput] = useState({})
-
+    // navigate hooks for navigating if user login
+    const GO = useNavigate();
     // state for login success 
     const [is_success_login, setLogin] = useState(false)
 
@@ -40,12 +41,13 @@ const Login = (props) => {
                 });
 
                 if (response.data.user) {
+                    GO("/");
                     // storing user in localstore
                     const login = localStorage.setItem('shoppinghub', JSON.stringify(response.data.user))
                     toast.success(response.data.success, {
                     });
                     props.isAccountPage(false)
-                    setLogin(true)
+
                     props.isLogoutOrLogin('login', true)
 
                 }

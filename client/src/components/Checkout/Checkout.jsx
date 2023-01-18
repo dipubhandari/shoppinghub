@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import CashOnDelivery from './CashOnDelivery/CashOnDelivery'
 import './Checkout.css'; import { HiOutlineTrash } from "react-icons/hi";
 import { FcApproval, FcPrevious, FcCheckmark, FcLock, FcMoneyTransfer } from "react-icons/fc";
-import Payment from'./PayNow/Payment'
- 
+import Payment from './PayNow/Payment'
+
 import { SlPaypal } from 'react-icons/sl'
 import { useState } from 'react';
 
@@ -15,8 +15,11 @@ const Checkout = () => {
 
     // method of handling the user payment selected method
     const handleInput = (e) => {
+
         //    setting the payment method on stte
         setselected_payment_method(e.target.value)
+
+
     }
 
     return (
@@ -28,7 +31,7 @@ const Checkout = () => {
             </h4>
 
             <h4 className='select_payment'>
-             
+
 
                 <form>
                     <input
@@ -46,7 +49,7 @@ const Checkout = () => {
                         value='paynow'
                     />
                     E-sewa/Paypal <SlPaypal />/Khalti <img
-                        style={{ width: '100px', height: '100px',display:'inline', }} src="https://ictframe.com/wp-content/uploads/Khalti-Logo.png"
+                        style={{ width: '100px', height: '100px', display: 'inline', }} src="https://ictframe.com/wp-content/uploads/Khalti-Logo.png"
                         alt="" />
                     <img
                         style={{ width: '100px', height: '100px', display: 'inline', }} src="https://1000logos.net/wp-content/uploads/2021/04/Paypal-logo.png"
@@ -72,8 +75,6 @@ const Checkout = () => {
                         </div>
                 }
 
-
-
                 <section className="right_cart_container">
 
                     <section className="card_total">
@@ -89,9 +90,7 @@ const Checkout = () => {
                     </section>
                     <section className="total">
                         <h5>Grand Total</h5> <span>Rs.</span>
-                    </section>
-                    <Link className='procced_button' to="/cart/checkout">Proceed To Payment <FcApproval /></Link>
-                </section>
+                    </section></section>
 
             </section>
         </>

@@ -1,7 +1,7 @@
 // importing modules
 import express from "express";
 import dbcon from "./database/dbcon.js";
-import router from "./routes/authentication_route.js";
+import auth_router from "./routes/authentication_route.js";
 import cors from 'cors'
 
 
@@ -18,7 +18,7 @@ app.use(cors())
 
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/', router)
+app.use('/', auth_router)
 
 // listen
 app.listen(PORT, () => {

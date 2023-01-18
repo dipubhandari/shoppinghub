@@ -61,7 +61,6 @@ const App = () => {
     }
     if (event == 'login') {
       setLogin(value)
-      console.log(value)
     }
   }
   //  updating the isLogin to fasle when click logout so that it rerender and no login error when proceed to payment
