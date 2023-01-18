@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './Cod.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
 
@@ -12,6 +13,7 @@ const CashOnDelivery = () => {
   // getting the data from redux store
   const cart_item = useSelector(state => state.cart)
 
+  const navigate = useNavigate()
   // state of input in the fiels
   const [input, setInput] = useState({})
 
@@ -49,6 +51,9 @@ const CashOnDelivery = () => {
     else {
       await axios.post('/api/order', { orderDetails: cart_item, user: input }).then((Response) => {
         console.log(Response.data.success)
+        if (Response.data.success) {
+          navigate('/order-success')
+        }
       }).then(eror => {
         console.log(eror)
       })

@@ -10,6 +10,6 @@ const orderdetailsSchema = new Schema({
     createdAt: { type: Date, default: new Date() }
 });
 
-const Order_Model = mongoose.model('users', orderdetailsSchema)
+const Order_Model = mongoose.model('orders', orderdetailsSchema)
 
 export default Order_Model

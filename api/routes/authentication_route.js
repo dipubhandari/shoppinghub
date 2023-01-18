@@ -1,10 +1,10 @@
 import express from "express";
 import Controller from "../controller/Controller.js";
 
-const auth_router = express.Router();
+const auth_route = express.Router();
 
-auth_router.post('/api/register', Controller.createaccount)
-auth_router.post('/api/login', Controller.login)
-auth_router.post('/api/check-login', Controller.Check_Login_Details)
+auth_route.post('/api/register', Controller.createaccount)
+auth_route.post('/api/login', Controller.login)
+auth_route.post('/api/check-login', Controller.Check_Login_Details)
 
-export default auth_router
+export default auth_route

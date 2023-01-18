@@ -53,6 +53,7 @@ const Cart = () => {
 
     //    state for the total price of the item 
     const [totalPrice, setTotalPrice] = useState('')
+
     useEffect(() => {
 
         let total = 0
@@ -140,4 +141,3 @@ const Cart = () => {
 }
 
 export default Cart
-

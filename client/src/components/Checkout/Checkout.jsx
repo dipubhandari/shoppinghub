@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import CashOnDelivery from './CashOnDelivery/CashOnDelivery'
 import './Checkout.css'; import { HiOutlineTrash } from "react-icons/hi";
 import { FcApproval, FcPrevious, FcCheckmark, FcLock, FcMoneyTransfer } from "react-icons/fc";
 import Payment from './PayNow/Payment'
-
-import { SlPaypal } from 'react-icons/sl'
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Checkout = () => {
 
+    // items in the cart
+    const cartItem = useSelector(state => state.cart)
+
+    const navigate = useNavigate()
     // state for tracking the selected payment method if cod selected show cod component if pay now selected show    now pay
     const [selected_payment_method, setselected_payment_method] = useState('cash-on-delivery')
 
@@ -21,6 +24,21 @@ const Checkout = () => {
 
 
     }
+
+    // calculating the total price in the cart
+    let [total_price, setTotalPrice] = useState('')
+    useEffect(() => {
+        let r = 0
+        cartItem.map((data) => {
+            r += data.qty * data.price
+        })
+        setTotalPrice(r)
+// navigating the user to cart if there is no item in cart
+        if (cartItem.length < 1) {
+            navigate("/cart")
+        }
+    }, [])
+
 
     return (
         <>
@@ -48,7 +66,7 @@ const Checkout = () => {
                         name='payment_method'
                         value='paynow'
                     />
-                    E-sewa/Paypal <SlPaypal />/Khalti <img
+                    E-sewa/Paypal/Khalti <img
                         style={{ width: '100px', height: '100px', display: 'inline', }} src="https://ictframe.com/wp-content/uploads/Khalti-Logo.png"
                         alt="" />
                     <img
@@ -82,14 +100,12 @@ const Checkout = () => {
                         <hr />
                     </section>
                     <section className="order_details">
-                        <b className="first">     <span>Selcted Item Price</span> <span>Rs. 0000</span></b>
+                        <b className="first">     <span>You Are Buying </span> <span> {cartItem.length} items</span></b>
 
-                        <b className="first">     <span>Discount</span> <span>Rs. 0000</span></b>
 
-                        <b className="first">     <span>Delivery Charge</span> <span>Rs. 0000</span></b>
                     </section>
                     <section className="total">
-                        <h5>Grand Total</h5> <span>Rs.</span>
+                        <h5>Grand Total</h5> <span>Rs.{total_price}</span>
                     </section></section>
 
             </section>

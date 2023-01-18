@@ -10,6 +10,7 @@ import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import axios from 'axios'
 import Checkout from './components/Checkout/Checkout'
+import ThankYou from './components/Checkout/ThankYou/ThankYou'
 
 const App = () => {
 
@@ -101,6 +102,17 @@ const App = () => {
           <Route path='/cart/checkout'
             element={(isLogin) ?
               <Checkout /> :
+              <Login
+                isAccountPage={isAccountPage}
+                isLogoutOrLogin={isLogoutOrLogin}
+                isLoginSignUpPage={isLoginSignUpPage}
+              />}></Route>
+          {/* order success page */}
+          <Route path='/order-success'
+            element={(isLogin) ?
+              <ThankYou
+                isAccountPage={isAccountPage}
+              /> :
               <Login
                 isAccountPage={isAccountPage}
                 isLogoutOrLogin={isLogoutOrLogin}

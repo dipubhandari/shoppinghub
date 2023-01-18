@@ -1,0 +1,13 @@
+.thankyou__ontainer {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: rgb(183, 19, 46);
+    margin: auto;
+}
+
+.thankyou__ontainer .buyanotherlink {
+    text-decoration: none;
+    color: blue;
+}
