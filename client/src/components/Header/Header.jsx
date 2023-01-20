@@ -31,7 +31,7 @@ const Header = (props) => {
     const logout = () => {
         localStorage.removeItem('shoppinghub')
         toast.info('Log Out!...');
-        props.isLogoutOrLogin('logout',false)
+        props.isLogoutOrLogin('logout', false)
     }
 
     // if user clicked in logout btn this functionality
@@ -68,7 +68,7 @@ const Header = (props) => {
                 {/* logo in the header section */}
 
                 <section className="logo">
-                    <Link to='/' className='homeLink'>   <h1>Shopping <span>Hub.</span></h1></Link>
+                    <Link to='/' className='homeLink'>   <h1>Bhandari <span>Pasal.</span></h1></Link>
                 </section>
                 {/* search bar in the header section */}
 
