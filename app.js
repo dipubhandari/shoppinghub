@@ -26,13 +26,11 @@ app.use('/', order_route)
 
 // deploy to the cyclic code
 
-app.use(express.static(path.join(process.cwd(), '../client/build')))
-
-app.get('*', (req, res) => {
-    res.sendFile(
-        path.join(process.cwd(), '../client/build/index.html')
-    )
+app.use(express.static(path.join(process.cwd(), './client//build')))
+app.get('/', (req, res) => {
+    res.sendFile(path.join(process.cwd(), "./client/build/index.html"))
 })
+
 // deploy code
 
 if (db_con) {
