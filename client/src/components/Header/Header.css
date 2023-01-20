@@ -120,3 +120,22 @@
     color: aliceblue;
     text-decoration: none;
 }
+/*responsive*/
+@media(max-width: 488px) {
+ 
+    .header_container {
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            display: block;
+           height: auto;
+            padding: 0px;
+        }
+        .logo{
+            background-color: rgb(136, 156, 157);
+            padding: 20px;
+        }
+  .search{
+    display: none;
+  }
+}

@@ -51,7 +51,7 @@ const Products = (props) => {
   // here
   return (
     <section className='recent_product_container'>
-      HOME <FcAdvance /> PRODUCTS <FcNext /> CATEGORIES <FcRight />
+    PRODUCTS <FcNext /> CATEGORIES <FcNext />
       {category}
       <h1>Products</h1>
       <section className="product_card">
@@ -83,8 +83,6 @@ const Products = (props) => {
           })
         }
         {/* Displyaing product from products state till here*/}
-
-        {/* first  */}
 
       </section>
     </section>

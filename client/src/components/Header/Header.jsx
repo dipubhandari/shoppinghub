@@ -73,9 +73,7 @@ const Header = (props) => {
                 {/* search bar in the header section */}
 
                 <section className="search">
-                    <input
-                        placeholder='Search Products...'
-                        type="text" />
+               
                     {/* <FcSearch/> */}
                 </section>
                 {/* cart in the header section */}

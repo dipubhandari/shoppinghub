@@ -2,11 +2,34 @@
 
    margin: 0px 200px;
 }
-.categories{
-  
-   margin: 0px 200px;
-}
-.products {
 
+@media(max-width: 1000px) {
+   .offers {
+
+      margin: 0px 10px;
+   }
+}
+
+.categories {
    margin: 0px 200px;
 }
+
+.products {
+   margin: 0px 200px;
+}
+
+@media(max-width: 768px) {
+   .products {
+      margin: 0px 0px;
+      display: flex;
+
+   }
+}
+
+@media(max-width: 1100px) {
+   .products {
+      margin: 0px 0px;
+      display: flex;
+
+   }
+} 

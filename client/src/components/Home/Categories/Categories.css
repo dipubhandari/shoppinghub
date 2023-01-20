@@ -8,7 +8,7 @@
 .categories h2 {
     font-size: large;
     /* font-weight: ; */
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: rgb(94, 92, 95);
 }
 
@@ -40,4 +40,54 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
+}
+
+/* sponsive */
+@media(max-width: 488px) {
+    .categoriescontainer {
+        display: grid;
+    }
+
+    .categories h2 {
+        font-size: large;
+        font-weight: bold ;
+        margin: 40px 0px 40px 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(126, 25, 176);
+        border-bottom: 1px solid rgb(235, 235, 235);
+      
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .categories_img {
+
+        border-radius: 10px;
+        height: 150px;
+    }
+
+    .categories_rows {
+        /* display: none; */
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .categories_item {
+        flex-wrap: wrap;
+        font-size: large;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(148, 148, 148);
+        font-family: Arial, Helvetica, sans-serif;
+        /* color: rgb(16, 16, 16); */
+        display: flex;
+        font-size: large;
+        font-weight: bold;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
 }
