@@ -3,7 +3,7 @@ import React from 'react'
 import './Products.css'
 import { ProductsDetails } from './Product'
 import { useState } from "react"
-import { useEffect } from "react"
+import { useEffect } from "react"; import { Link } from 'react-router-dom'
 import { add } from "../../redux/cartSlice"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -51,7 +51,7 @@ const Products = (props) => {
   // here
   return (
     <section className='recent_product_container'>
-    PRODUCTS <FcNext /> CATEGORIES <FcNext />
+      PRODUCTS <FcNext /> CATEGORIES <FcNext />
       {category}
       <h1>Products</h1>
       <section className="product_card">
@@ -64,9 +64,12 @@ const Products = (props) => {
                 {/* showing the category of the item */}
                 {product.category}
               </span>
-              <section className="product_image">
-                <img src={product.img} alt="" />
-              </section>
+              <Link to={`/product-detail/${product.id}`}>
+                <section className="product_image">
+                  <img src={product.img} alt="" />
+                </section>
+              </Link>
+
               <section className="product_name">
                 <h3> {product.name}</h3>
               </section>

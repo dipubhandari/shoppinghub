@@ -11,6 +11,7 @@ import Signup from './components/Signup/Signup'
 import axios from 'axios'
 import Checkout from './components/Checkout/Checkout'
 import ThankYou from './components/Checkout/ThankYou/ThankYou'
+import Productsdetails from './components/Products/ProductsDetails/Productsdetails'
 
 const App = () => {
 
@@ -85,7 +86,11 @@ const App = () => {
           {/* category page */}
           <Route path='/products/:categoryname' element={<Products clickedOnNavigation={clickedOnNavigation} />}></Route>
 
-          {/* cart page */}
+          {/* { product detaisl page */}
+          <Route path='/product-detail/:id' element={<Productsdetails />}/>
+
+            {/* cart page */}
+
           <Route path='/cart' element={<Cart />}></Route>
 
           {/* login page */}

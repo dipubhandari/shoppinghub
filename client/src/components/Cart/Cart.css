@@ -1,6 +1,6 @@
 .back_btn {
-  margin: 100px;
-  gap: 10px;
+    margin: 100px;
+    gap: 10px;
 }
 
 .cart_container {
@@ -66,7 +66,16 @@ h4 {
 .qty_button {
     padding: 0px 0px;
     display: flex;
+    /* padding: ; */
     gap: 20px;
+}
+
+.qty_button button {
+    padding: 0px 10px;
+    background-color: orange;
+    border: 1px solid gainsboro;
+    color: blanchedalmond;
+
 }
 
 .sub_total {
@@ -103,6 +112,38 @@ h4 {
     width: 100%;
     font-weight: lighter;
 }
+
+
+@media(max-width:768px) {
+    .cart_container {
+        display: grid;
+    }
+
+    .left_cart_container {
+        margin: 1px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid rgb(192, 192, 192);
+        height: auto;
+    }
+
+    .delete_icon {
+        position: absolute;
+        top: 10px;
+    }
+
+    .cart_product_img img {
+        margin-top: 20px;
+    }
+
+    .left_cart_container {
+        position: relative;
+
+    }
+}
+
 
 .total {
     display: flex;

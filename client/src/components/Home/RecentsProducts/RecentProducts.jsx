@@ -2,7 +2,7 @@ import { FaCartPlus } from "react-icons/fa";
 import React from 'react'
 import './RecentProducts.css'
 import { Link } from "react-router-dom";
-import { ProductsDetails } from './Product'
+import { ProductsDetails } from '../../Products/Product'
 import { useState } from "react";
 import { add } from "../../../redux/cartSlice";
 import { useDispatch } from 'react-redux'
